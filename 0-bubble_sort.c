@@ -2,21 +2,6 @@
 #include <stdbool.h>
 
 /**
- * swap_arr - swap two index
- *
- * @get: swapped with to
- * @to: swapped with get
- */
-void swap_arr(int *get, int *to)
-{
-	int temp;
-
-	temp = *get;
-	*get = *to;
-	*to = temp;
-}
-
-/**
  * bubble_sort -  sorts an array of integers in ascending order
  *
  * @array: array of integer
@@ -25,7 +10,7 @@ void swap_arr(int *get, int *to)
 void bubble_sort(int *array, size_t size)
 {
 	size_t i, j;
-	int check;
+	int check, temp;
 
 	for (i = 0; i < size - 1; i++)
 	{
@@ -34,7 +19,9 @@ void bubble_sort(int *array, size_t size)
 		{
 			if (array[j] > array[j + 1])
 			{
-				swap_arr(&array[j], &array[j + 1]);
+				temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
 				print_array(array, size);
 				check = 1;
 			}
